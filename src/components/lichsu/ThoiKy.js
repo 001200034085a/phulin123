@@ -31,7 +31,9 @@ const ThongTin = () => {
                     <option>1380</option>
                     <option>1753</option>
                     <option>1890</option>
-                   
+                    <option>1911</option>
+                    <option>1922</option>
+                    <option>1924</option>
                 </select>
             </div>
             

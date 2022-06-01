@@ -13,13 +13,20 @@ export default function ThongTin1({name,image,dob,description,address,country,ca
                     <c>Xuất thân: {description}</c><br/>
                     <d>Quê quán: {address}</d><br/>
                     <e>Quốc gia: {country}</e><br/>
+                    <a>Chức vụ: {position}</a>
                 </div> 
              </div>
-              <p>Thời kỳ: {period}</p>
-              <f>Chiến tích: {career}</f><br/><br/>
-              <g>Vinh danh: {prize}</g><br/><br/>
-              <h>Cống Hiến: {evaluate}</h>
+                <div className="thong-tin1d">
+                    <p>Thời kỳ: {period}</p>
+                    <f>Chiến tích: {career}</f><br/><br/>
+                    <h>Cống Hiến: {evaluate}</h><br/><br/>
+                </div>
               
+              <div className="thong-tin1c">
+                <g>Vinh danh: {prize}</g><br/><br/>  
+                <b>Huân Chương:{medal}</b><br/><br/>
+                
+              </div>
             
         </div>
     )

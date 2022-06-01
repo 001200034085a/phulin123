@@ -29,6 +29,8 @@ const ThongTin = () => {
                     career={item.career}
                     prize={item.prize}
                     evaluate={item.evaluate}
+                    medal={item.medal}
+                    
                         />
                 )
             })}
