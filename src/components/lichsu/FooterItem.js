@@ -6,6 +6,7 @@ export default function FooterItem({name,idea,opinion}){
             <div>tên: {name}</div>
             <div>ý kiến cá nhân: {idea}</div>
             <div>góp ý: {opinion}</div><br/>
+            
         </div>
     )
 }

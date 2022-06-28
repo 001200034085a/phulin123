@@ -9,8 +9,21 @@ import FooterHistory from './components/lichsu/FooterHistory';
 import HistoryApp from './components/lichsu/HistoryApp';
 import ContentApp from './components/lichsu/ContentApp';
 import { ScrollToTop } from './components/lichsu/ScrollToTop';
-import SideEffectApp from './components/side_efect_app/SideEffectApp';
-import HookApp from './components/Hook-app/HookApp';
+import QuestionApp from './components/lichsu/QuestionApp';
+import JavTutorial from './components/jav/JavTutorial';
+import ExpenseApp from './components/expense_app/ExpenseApp';
+import MainApp from './test/MainApp';
+import FootBall from './components/sakura/FootBall';
+
+// import HistoryAdmin from './components/phanquyen/HistoryAdmin';
+// import RoutingApp from './components/routing-app/RoutingApp';
+// import MemeApp from './components/meme_app/MemeApp';
+// import MainContent from './components/meme_app/MainContent';
+// import HookApp from './components/Hook-app/HookApp';
+import CartApp from './components/cart/CartApp';
+
+
+
 
 
 
@@ -20,25 +33,37 @@ import HookApp from './components/Hook-app/HookApp';
 import ('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Pacifico&display=swap');
 
 
-
-
 function App() {
+  
   return (
-    <div>
-       <HistoryApp />
+    // <div>
+    //    <HistoryApp />
         
-       <div>
-         <ContentApp/>
-         <ScrollToTop />
-         <FooterApp/>
-         <FooterHistory/>
-       </div>
+    //    <div>
+    //      <ContentApp/>
+    //      <ScrollToTop />
+    //      <FooterApp/>
+    //      <FooterHistory/>
+    //    </div>
     
-    </div>
-  // <div>
-  //   <HookApp />
-  // </div>
-  );
+    // </div>
+
+    // <JavTutorial />
+
+    <CartApp />
+    
+   
+    // <ExpenseApp />
+  
+    // <QuestionApp />
+    
+   
+    // <MainApp />
+    // <FootBall />
+  
+  
+    
+  )  
 }
 
 export default App;

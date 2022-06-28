@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ContentSlide from "./ContentSlide";
 import ContentHistoryList from "./ContentHistoryList";
+import QuestionApp from "./QuestionApp";
 // import ContentApp from "./ContentApp";
 
 
@@ -20,8 +21,9 @@ export default function DarkLight(){
            </div>
            <div>
              <ContentSlide />
+             
              <ContentHistoryList/>
-              {/* <ContentApp/> */}
+             <QuestionApp />
            </div>
            
         </div>

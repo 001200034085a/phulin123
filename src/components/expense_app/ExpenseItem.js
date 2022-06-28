@@ -1,35 +1,32 @@
 import React, { useState } from "react";
 
-export default function ExpenseItem({id,name,date,amount,onEditItem,onDeleteItem}){
-     const [editing, setEditing]=useState(false)
-     const [newName, setNewName]=useState('')
-     const [newAmount ,setNewAmount]=useState('')
-     
-     const edit=()=>{
-       onEditItem(id,newName,newAmount)
-       setEditing(false)
-       setNewName('')
-       setNewAmount('')
-     }
-     const anebleEdit=()=>{
-       console.log("chuyển dữ liệu sang")
-       setEditing(true)
-     }
-     const changeNewName=(event)=>{
-       setNewName(event.target.value)
-     }
-     const changNewAmount=(event)=>{
-       setNewAmount(event.target.value)
-     }
+export default function ExpenseItem({date,name,amount,id,onDeleteItem,onEditItem}){
+  const [isEditing, setIsEditing]=useState(false);
+  const [newName ,setNewName]=useState('');
+  const [newDate, setNewDate]=useState('');
+  const [newAmount, setNewAmount]=useState('');
 
-     
-    return(
-        <div className="expense-item">
-          <div>{date}</div>
-          {editing ? <input type="text" defaultValue={name} onChange={changeNewName} />:<div>{name}</div>}
-          {editing ? <input type="number" defaultValue={amount} onChange={changNewAmount}  />:<div>$ {amount}</div>}
-          {editing ? <button onClick={edit}>lưu</button>:<button onClick={anebleEdit}>sửa</button>}
-          <button onClick={(event)=>onDeleteItem(id)}>xóa</button>
-        </div>
-    )
+  const Edit=()=>{
+   setIsEditing(false);
+   onEditItem(id,newName,newDate,newAmount);
+
+   setNewName('');
+   setNewAmount('');
+   setNewDate('');
+  }
+  const anEditable=()=>{
+    setIsEditing(true);
+  }
+  
+
+  return(
+    <div className="expense-item">
+      
+      {isEditing ?<input type="text" onChange={(event)=>setNewName(event.target.value)} />:<b>{name}</b>} 
+      {isEditing ?<input type="date" onChange={(event)=>setNewDate(event.target.value)}/>:<div>{date}</div>}
+      {isEditing ?<input type="number" onChange={(event)=>setNewAmount(event.target.value)}/>:<c>{amount}$</c>}
+      {isEditing ?<button onClick={Edit}>lưu</button>:<button onClick={anEditable}>sửa</button>} 
+       <button onClick={(event)=>{onDeleteItem(id)}}>xóa</button>
+    </div>
+  )
 }

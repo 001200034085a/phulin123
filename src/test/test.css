@@ -1,0 +1,17 @@
+.main-item{
+    display: flex;
+    justify-content: center;
+    
+}
+.main-app{
+    
+    text-align: center;
+  
+}
+.list{
+    margin-top: 50px;
+    background-color: aqua;
+    width: 50%;
+    border-radius: 20px;
+    margin-left: 30%;
+}

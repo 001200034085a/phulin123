@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { AuthContext, logout } from "../Dangky/user";
 
 
@@ -16,8 +16,9 @@ export default function NavbarHistory(){
     navigate("/login");
   };
   return (
-    <div>
-      <Navbar
+    
+    <div> 
+      <Navbar 
         bg="dark"
         variant="dark"
         style={{ display: "flex", justifyContent: "space-between" }}
@@ -25,7 +26,7 @@ export default function NavbarHistory(){
         <div className="ab">
           <Nav>
             <Nav.Link className="ms-5"><h2><i>Anh Hùng Dân Tộc</i></h2></Nav.Link>
-            <Navbar.Brand href="#home" className="ms-5">
+            <Navbar.Brand href="/" className="ms-5">
               <img
                 src="https://vn-test-11.slatic.net/p/a49378a595c3ee8579ebab3e8ad59883.jpg"
                 alt=""
@@ -71,6 +72,7 @@ export default function NavbarHistory(){
         </Navbar>
       <Navbar bg="dark" variant="dark">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        
         <Navbar.Collapse
           id="basic-navbar-nav"
           style={{
@@ -91,9 +93,13 @@ export default function NavbarHistory(){
             <NavLink to="/ct" className={activeClassName}>
               Chiến tích
             </NavLink>
+            {/* <NavLink to="/aa" className={activeClassName}>
+              admin
+            </NavLink> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>
+    
   );
 };

@@ -12,7 +12,7 @@ export default function ContentApp(){
         <div className="content-app">
           
               <BrowserRouter className="history-content">
-                <div>
+                <div >
                    <Container>
                        <Routes>
                           <Route path={""} element={<ContentHistory/>} >

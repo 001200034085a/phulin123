@@ -1,73 +1,64 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Container, ListGroup, Navbar, NavbarBrand } from "react-bootstrap";
 import axios from "axios";
+import FoodItem from "./FoodItem";
+import OderForm from "./OderForm";
+
 
 export default function FoodApp(){
+    const [foods, setFoods]=useState([]);
+    const [orders, setOrders]=useState([]);
 
-    // useEffect(()=>{
-    //     setTimeout=(()=>{
-    //         axios.get('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals').then(response=>{
-    //            console.log(response.data)
-    //         }).catch(error=>{
-    //            console.log("đã sảy ra lỗi")
-    //            console.log(error)
-    //         }).finally(()=>{
-    //         console.log("dù có lỗi như nào nó vẫn chạy")
-    //         });
-    //     },1000)
-    // },[]);
-    const [isLoading, setIsLoading]=useState(false);
-
-    // cách 1:
-    const LoadMeals=()=>{
-        setIsLoading(true);
-        axios.get('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals').then(response=>{
-             console.log(response.data);
-             
-        }).catch(error=>{
-            console.log("đã xảy ra lỗi");
-           
-        }).finally(()=>{
-             setIsLoading(false);
+    useEffect((decrreaseAmount)=>{
+        axios.get('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals').then((reponse)=>{
+            setFoods(reponse.data)
         })
-    };
-    const PostOrder=()=>{
-        let data={
-            name:"hello",
-            age:30
-        };
+    },[])
+    
+    const onAddToCart=(food,amount)=>{
+        let tmp={...food,amount:amount};
+        let newOrders=[...orders,tmp];
+        setOrders(newOrders);
+    }
 
-        axios.post('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals',data).then(response=>{
-             console.log(response);
-             
-        }).catch(error=>{
-            console.log(error);
-           
+    const increaseAmount=(order)=>{
+        let newOrders=[...orders];
+        let foundOrder=newOrders.find(item=>item.id==order.id);
+        if(!foundOrder) return;
+
+        foundOrder.amount +=1;
+        setOrders(newOrders)
+    }
+    const decrreaseAmount=(order)=>{
+        let newOrders=[...orders];
+        let foundOrder=newOrders.find(item=>item.id==order.id);
+        if(!foundOrder) return;
+
+        foundOrder.amount -=1;
+        setOrders(newOrders.filter(item=>item.amount !=0))
+    }
+    const makeAnOrder=(data)=>{
+        axios.post('POST https://625a91bf0ab4013f94a2d9a8.mockapi.io/orders',data).then(()=>{
+            alert("order thành công")
         })
     }
 
-    // cách 2:
-    // const LoadMeals= async()=>{
-    //     try{
-    //       let response= await axios.get('https://625a91bf0ab4013f94a2d9a8.mockapi.io/meals');
-    //       console.log(response);
-    //     }catch(error){
-    //         console.log("đã xảy ra lỗi");
-    //     }finally{
-    //         setIsLoading(false);
-    //         console.log("dù có lỗi hay không nó vẫn chạy")
-    //     }
-       
-    // };
-    
-
     return(
         <div className="food-app">
-            <Container>
-                <h1>Food App</h1>
-                <Button variant="primary" onClick={LoadMeals} disabled={isLoading} >{isLoading ? "Loading data...":"Load Meals"}</Button>
-                <Button variant="success" onClick={PostOrder} className="ms-3" disabled={isLoading} >{isLoading ? "Posting data...":"Post order"}</Button>
+          <Container>   
+            <Navbar>
+                <Navbar.Brand>React FoodApp</Navbar.Brand>
+                <OderForm orders={orders} onIncreaseAmount={increaseAmount} onDecrreaseAmount={decrreaseAmount} />
+            </Navbar>
+            <Container className="mt-3">
+                <h2>Food List</h2>
+                <ListGroup>
+                    {foods.map(food=><ListGroup.Item>
+                        <FoodItem key={food.id} food={food} onAddToCart={onAddToCart}   />
+                    </ListGroup.Item>)}
+                </ListGroup>
             </Container>
+         </Container>   
         </div>
     )
 }

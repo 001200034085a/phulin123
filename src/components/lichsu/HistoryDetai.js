@@ -24,7 +24,9 @@ export default function HistoryDetai(){
                     <b>Xuất thân:{found.description}</b><br/><br/>
                     <b>Thời kỳ: {found.period}</b>
                     <b>Sự nghiệp:{found.career}</b><br/><br/>
-                    <b>Thành tựu:{found.prize}</b>
+                    <b>Thành tựu:{found.prize}</b><br/><br/>
+                    <b>Huân Chương:{found.medal}</b><br/><br/> 
+                    <b>Vinh danh:{found.honnors}</b><br/><br/>
                     
                 </div>
             }

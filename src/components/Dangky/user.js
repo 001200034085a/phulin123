@@ -61,3 +61,7 @@ export function register(newUser) {
 }
 
 export const AuthContext = React.createContext(null);
+
+export function isAdmin(user){
+  return user && user.email=="Admin@gmail.com"
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function ThongTin1({name,image,dob,description,address,country,career,prize,evaluate,period}){
+export default function ThongTin1({name,image,dob,description,address,country,career,prize,evaluate,period,medal,position}){
     return(
         <div className="thong-tin1">
             

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/ExpenProgressBar.css"
+import "../../css/ExpenProgressBar.css";
 
 export default function ExpenProgressBar({label,amount,maxAmount}){
     const percentage =amount*100/maxAmount;

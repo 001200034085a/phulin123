@@ -17,7 +17,7 @@ const ThongTin = () => {
         <div className='thoi-ky' >
             <div>
                 <select value={filterYear} onChange={(event)=>setFilterYear(event.target.value)} >
-                    <option> 700TCN</option>
+                    <option> 700</option>
                     <option>140</option>
                     <option>503</option>
                     <option>866</option>

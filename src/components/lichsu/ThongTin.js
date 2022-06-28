@@ -22,6 +22,7 @@ const ThongTin = () => {
                     image={item.image}
                     name={item.name}
                     dob={item.dob}
+                    position={item.position}
                     description={item.description}
                     address={item.address}
                     country={item.country}

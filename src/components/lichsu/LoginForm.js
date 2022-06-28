@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { AuthContext, login } from "../Dangky/user";
+import { AuthContext, login, isAdmin } from "../Dangky/user";
+
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -31,8 +32,14 @@ const LoginForm = () => {
         setEmailError("Email hoặc mật khẩu không chính xác");
       } else {
         // nếu tìm thấy user -> cập nhật trạng thái đăng nhập của MemeApp
-        auth.setCurrentUser(user);
+       
+        if(isAdmin(user)){
+          auth.setCurrentUser(user)
+          navigate("/aa")
+        }else{
+           auth.setCurrentUser(user);
         navigate("/");
+        }
       }
     }
   };

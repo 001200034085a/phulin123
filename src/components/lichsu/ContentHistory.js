@@ -22,13 +22,14 @@ export default function ContentHistory(){
                    <Col>
                         <ul className="history-list" >
                             {result.map(history=><li key={history.id} >
-                                <Link to={''+history.id} >{history.name}</Link> 
+                                <Link to={''+history.id}>{history.name}</Link>
+                                
                             </li>
                             )}
                        </ul>
                    </Col>
-                   <Col>
-                        <Outlet> </Outlet>
+                    <Col>
+                         <Outlet> </Outlet>
                    </Col>
                </Row>
            </Container>

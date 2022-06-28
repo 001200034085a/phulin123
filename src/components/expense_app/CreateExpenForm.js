@@ -1,50 +1,35 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 
-export default function CreateExpenseForm({onCreateExpense}){
-    const [editable, setEditable]=useState(false);
+export default function CreateExpenForm({onAddItem}){
     const [newName, setNewName]=useState('');
-    const [newAmount, setNewAmount]=useState('');
     const [newDate, setNewDate]=useState('');
+    const [newAmount, setNewAmount]=useState('');
 
-    
-
-    const handleCreateExpense=(event)=>{
+    const handleCreatForm=(event)=>{
         event.preventDefault();
-        if(!newName||!newDate||!newAmount){
-            alert("vui lòng nhập lại giữ liệu")
-            return
+
+        if(!newName,!newDate,!newAmount){
+            alert("vui lòng nhập dữ liệu")
+            return;
         }
-        onCreateExpense(newName,newDate,newAmount);  
-
-        setNewName('');
-        setNewDate('')
-        setNewAmount('')
-        setEditable(false)
+        onAddItem(newName,newDate,newAmount)
     }
-    return(
-        <form onSubmit={handleCreateExpense} className="create-expense-form">
-           {!editable && <div className="expense-create-form">
-                 <button type="button" onClick={()=>setEditable(true)} >add new pense</button>
-           </div> }
-           {editable && <div >
-                <div className="input-group" >
-                    <label>name</label>
-                    <input type="text" onChange={(event)=>setNewName(event.target.value)} />
-                </div> 
-                <div className="input-group" >
-                    <label>date</label>
-                    <input type="date" onChange={(event)=>setNewDate(event.target.value)} />
-                </div> 
-                <div className="input-group" >
-                    <label>amount</label>
-                    <input type="text" onChange={(event)=>setNewAmount(event.target.value)} />
-                </div> 
-                <div className="action">
-                    <button type="submit">add</button>
-                    <button type="button" onClick={()=>setEditable(false)}>cancel</button>
-                </div>
-            </div>}
-        </form> 
 
+
+    return(
+        <form onSubmit={handleCreatForm} className="create-expen-form">
+          <div> 
+           <lable>name</lable>
+           <input type="text" onChange={(event)=>setNewName(event.target.value)}/>
+
+           <lable>date</lable>
+           <input type="date" onChange={(event)=>setNewDate(event.target.value)} />
+
+           <lable>amount</lable>
+           <input type="number" onChange={(event)=>setNewAmount(event.target.value)} />
+          </div>  
+          <button type="submit">add</button>
+          <button type="button" >cancel</button>
+        </form>
     )
 }
