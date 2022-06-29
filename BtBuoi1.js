@@ -4,10 +4,22 @@ const car =function(make,speed){
 }
 
 car.prototype.hurry=function(){
-    return(this.speed += 10)
+    
+    if(this.speed == 400){
+        return(this.speed)
+    }
+    else{
+       return(this.speed += 10) 
+    }
 }
 car.prototype.brake=function(){
-    return(this.speed -=5)  
+     
+    if(this.speed ==0){
+        return(this.speed)
+    }
+    else{
+      return(this.speed -=5)   
+    }
 }
 
 const BMW=new car("BMW",120);
