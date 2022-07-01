@@ -5,7 +5,7 @@ const car =function(make,speed){
 
 car.prototype.hurry=function(){
     
-    if(this.speed == 400){
+    if(this.speed >= 400){
         return(this.speed)
     }
     else{
