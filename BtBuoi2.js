@@ -10,11 +10,11 @@ const handleGet =()=>{
         <div>email: ${data.email} </div>
         <div>company: ${data.company} </div>
         <div>followwers: ${data.followers}</div>`;
-        $(`.content-table`).innerHTML = html
+        $(`.content`).innerHTML = html;
     })
     .catch(err=>{
         const html=`<h2>${err.message}</h2>`;
-        $(`.content-table`).innerHTML = html;
+        $(`.content`).innerHTML = html;
     })
 }
 
@@ -29,7 +29,7 @@ const getDataApi= async (username)=>{
     <div>company: </div>
     <div>followwers:</div>`;
 
-    $('.content-table').innerHTML=html;
+    $('.content').innerHTML=html;
 
     const api= 'https://api.github.com/users';
     const query = await fetch(`${api}/${username}`);
