@@ -1,6 +1,5 @@
 
 const $=document.querySelector.bind(document);
-const $$ =document.querySelectorAll.bind(document);
 
 const handleGet=()=>{
     const valueInput=$('.input').value.trim();
