@@ -6,7 +6,7 @@ const handleGet =()=>{
     getDataApi(valueInput).then((data) => {
         const html=`
         <div>Name :${data.name || data.login}</div>
-        <img src=" ${data.avatar_url} " alt=" " />
+        <img src=" ${data.avatar_url} " alt="ảnh " />
         <div>email: ${data.email} </div>
         <div>company: ${data.company} </div>
         <div>followwers: ${data.followers}</div>`;
@@ -24,7 +24,7 @@ const getDataApi= async (username)=>{
     const html=`
     <div>
     <div>Name </div>
-    <img src="" alt="   " />
+    <img src="" alt="ảnh " />
     <div>email: </div>
     <div>company: </div>
     <div>followwers:</div>`;
