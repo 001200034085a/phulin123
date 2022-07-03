@@ -21,15 +21,6 @@ const handleGet =()=>{
 $('.btn-get').addEventListener("click",handleGet);
 
 const getDataApi= async (username)=>{
-    const html=`
-    <div>
-    <div>Name </div>
-    <img src="" alt="ảnh " />
-    <div>email: </div>
-    <div>company: </div>
-    <div>followwers:</div>`;
-
-    $('.content').innerHTML=html;
 
     const api= 'https://api.github.com/users';
     const query = await fetch(`${api}/${username}`);
