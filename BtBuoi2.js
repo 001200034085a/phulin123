@@ -1,6 +1,24 @@
 
 const $ = document.querySelector.bind(document);
 
+const getDataApi= async (username)=>{
+
+    const api= 'https://api.github.com/users';
+    const query = await fetch(`${api}/${username}`);
+    const res = await query.json();
+
+    const promise= new Promise((resolve,reject)=>{
+        const notFound={
+            status:404,
+            message: 'The user you requested was not found',
+        };
+        res.message ? reject(notFound) : resolve(res);
+
+    })
+    return promise;
+}
+
+
 const handleGet =()=>{
     const valueInput = $('.input').value.trim();
     getDataApi(valueInput).then((data) => {
@@ -20,19 +38,3 @@ const handleGet =()=>{
 
 $('.btn-get').addEventListener("click",handleGet);
 
-const getDataApi= async (username)=>{
-
-    const api= 'https://api.github.com/users';
-    const query = await fetch(`${api}/${username}`);
-    const res = await query.json();
-
-    const promise= new Promise((resolve,reject)=>{
-        const notFound={
-            status:404,
-            message: 'The user you requested was not found',
-        };
-        res.message ? reject(notFound) : resolve(res);
-
-    })
-    return promise;
-}
