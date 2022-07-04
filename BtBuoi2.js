@@ -19,22 +19,24 @@ const getDataApi= async (username)=>{
 }
 
 
-const handleGet =()=>{
-    const valueInput = $('.input').value.trim();
-    getDataApi(valueInput).then((data) => {
-        const html=`
-        <div>Name :${data.name || data.login}</div>
-        <img src=" ${data.avatar_url} " alt="ảnh " />
-        <div>email: ${data.email} </div>
-        <div>company: ${data.company} </div>
-        <div>followwers: ${data.followers}</div>`;
-        $(`.content`).innerHTML = html;
+const handleGet=()=>{
+    const valueInput=$(`.input`).value;
+    getDataApi(valueInput).then((res)=>{
+      const html=`
+          <div>
+              <div>name:${res.name || res.login}</div>
+              <img src="${res.avatar_url}" />
+              <div>email:${res.email}</div>
+              <div>company:${res.company}</div>
+              <div>followers:${res.followers}</div>
+          </div>
+      `;
+      $(`.content`).innerHTML=html;
     })
-    .catch(err=>{
-        const html=`<h2>${err.message}</h2>`;
-        $(`.content`).innerHTML = html;
+    .catch((notFound)=>{
+        const html=`<div>${notFound.message}</div>`;
+        $(`.content`).innerHTML=html;
     })
 }
 
-$('.btn-get').addEventListener("click",handleGet);
-
+ $(`.btn-get`).addEventListener("click",handleGet);
