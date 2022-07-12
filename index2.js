@@ -10,4 +10,4 @@ app.use("/api/users",usersRouter);
 
 app.listen(port,()=>{
     console.log("sever running http://localhost.5000")
-});
+})
