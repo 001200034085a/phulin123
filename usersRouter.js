@@ -15,8 +15,8 @@ usersRouter.post("/",(req,res)=>{
         id:users[users.length-1].id+1,
         name:req.body.name
     }
-   const Json=[...users,newData]
-    res.send(Json);
+   users.push(newData);
+   res.send(users);
 });
 // delete
 usersRouter.delete("/",(req,res)=>{
