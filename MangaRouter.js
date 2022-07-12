@@ -15,8 +15,8 @@ mangaRouter.post("/",(req,res)=>{
         id:mangas[mangas.length-1].id+1,
         name:req.body.name
     }
-    const Json=[...mangas,newData]
-    res.send(Json)
+    mangas.push(newData);
+   res.send(mangas);
 });
 // delete
 mangaRouter.delete("/",(req,res)=>{
