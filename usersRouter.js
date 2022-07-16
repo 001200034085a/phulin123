@@ -81,6 +81,7 @@ const validateUsers=(users)=>{
         
         gender:joi.string()
         .regex(/nam$|nữ$|khác$/)
+        .required()
         
         
     });
