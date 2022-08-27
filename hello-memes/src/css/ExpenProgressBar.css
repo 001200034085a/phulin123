@@ -1,0 +1,10 @@
+.expen-progress-bar{
+    width: 100%;
+    border: 1px solid #222;
+    background-color: aliceblue;
+    height: 25px;
+}
+.expense-current-progresss{
+    height: 100%;
+    background-color: aqua;
+}
