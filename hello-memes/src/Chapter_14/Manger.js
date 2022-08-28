@@ -5,6 +5,7 @@ import CreatePeople from "./CreatePeople";
 import {
     DeleteOutlined
   } from '@ant-design/icons';
+import ItemManger from "./ItemManger";
 
 
 export default function Manger(){
@@ -23,17 +24,35 @@ export default function Manger(){
         })
     };
 
-    const onCreate =(first_name, last_name, email, gender, avatar, address)=>{
+    const onCreate =(first_name, last_name, email, gender, avatar, address, textarea)=>{
          const newItems ={
+            id:people.length + 1,
             first_name:first_name,
             last_name:last_name,
             email:email,
             gender:gender,
             avatar:avatar,
-            address:address
+            address:address, 
+            textarea:textarea
          };
          setPeople([...people,newItems]);
     };
+
+    const onEdit =(itemId, newFirst_name, newLast_name, newAddress, newGender, newAvatar, newEmail, newTextarea)=>{
+        const newItem = [...people];
+        for(let item of people){
+            if(item.id === itemId){
+                item.first_name = newFirst_name
+                item.last_name = newLast_name
+                item.avatar = newAvatar
+                item.email= newEmail
+                item.address = newAddress
+                item.gender = newGender
+                item.textarea = newTextarea
+            }
+        }
+        setPeople(newItem);
+    }
 
    const confirmDelete=()=>{
       setPeople([])
@@ -62,34 +81,51 @@ export default function Manger(){
         
            <List
                itemLayout="horizontal"
-               dataSource={result}
+               dataSource={result.sort((a,b)=>a.first_name>b.first_name ? 1:-1)}
                renderItem={(item) => (
-                <List.Item>
-                    <List.Item.Meta
-                       avatar={<Avatar src={item.avatar} />}
-                       title={<a href="https://ant.design">{`${item.first_name} ${item.last_name}`}</a>}
-                       description={
-                        <div>
+
+                <ItemManger key={item.id}
+                id={item.id}
+                first_name={item.first_name}
+                last_name={item.last_name}
+                avatar={item.avatar}
+                email={item.email}
+                address={item.address}
+                gender={item.gender}
+                textarea={item.textarea}
+                deletePeople={deletePeople}
+                onEdit={onEdit}
+                 />
+                // <List.Item>
+                //     <List.Item.Meta
+                //        avatar={<Avatar src={item.avatar} />}
+                //        title={<a href="https://ant.design">{`${item.first_name} ${item.last_name}`}</a>}
+                //        description={
+                //         <div>
                             
-                            <Row>
-                                <Col>email:</Col>&nbsp;
-                                <Col>{item.email}</Col>
-                            </Row> 
-                            <Row>
-                                <Col>gender:</Col>&nbsp;
-                                <Col>{item.gender}</Col>
-                            </Row>
-                            <Row>
-                                <Col>address:</Col>&nbsp;
-                                <Col>{item.address}</Col>
-                            </Row>
+                //             <Row>
+                //                 <Col>email:</Col>&nbsp;
+                //                 <Col>{item.email}</Col>
+                //             </Row> 
+                //             <Row>
+                //                 <Col>gender:</Col>&nbsp;
+                //                 <Col>{item.gender}</Col>
+                //             </Row>
+                //             <Row>
+                //                 <Col>address:</Col>&nbsp;
+                //                 <Col>{item.address}</Col>
+                //             </Row>
+                //             <Row>
+                //                 <Col>textarea:</Col>&nbsp;
+                //                 <Col>{item.textarea}</Col>
+                //             </Row>
                             
-                        </div>
-                       }
-                    />
+                //         </div>
+                //        }
+                //     />
                     
-                    <DeleteOutlined onClick={()=>deletePeople(item.id)} />
-                </List.Item>
+                //     <DeleteOutlined onClick={()=>deletePeople(item.id)} />
+                // </List.Item>
                  )}
             />
         </>

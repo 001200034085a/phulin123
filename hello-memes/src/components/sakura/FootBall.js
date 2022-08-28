@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function FootBall(){
     const [data, setData]=useState([
         {"id":1,"name":"Man City","points":"99","gd":"45"},
-        {"id":2,"name":"chelsea","points":"75","gd":"49"},
+        {"id":2,"name":"Chelsea","points":"75","gd":"49"},
         {"id":3,"name":"Manchester UniTed","points":"60","gd":"99"},
         {"id":4,"name":"Liverpool","points":"88","gd":"39"},
         {"id":5,"name":"Alentico Madrid","points":"99","gd":"52"},
