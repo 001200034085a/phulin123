@@ -38,8 +38,9 @@ a{
     align-items: center;
 }
 img.small{
-    max-height: 8rem;
-    max-width: 8rem;
+    height: 120px;
+    width: 120px;
+    margin: 15px;
 }
 button{
     background-color: rgb(255, 174, 0);
@@ -71,4 +72,7 @@ button.badge{
     width: 70px;
     height: 70px;
     
+}
+.product-cart div{
+    margin-left: 15px;
 }
