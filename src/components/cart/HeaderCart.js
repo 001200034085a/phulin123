@@ -1,4 +1,8 @@
 import React from "react";
+import {
+    ShoppingCartOutlined,
+    LoginOutlined
+  } from '@ant-design/icons';
 
 export default function HeaderCart(props){
     const {countCartItems}=props;
@@ -10,12 +14,12 @@ export default function HeaderCart(props){
                 </div>
                 <div>
                     <a href="#">
-                       cart {""}
+                       <ShoppingCartOutlined />
                        {countCartItems ? <button className="badge">{countCartItems}</button>:""}
                     </a>
-                    &nbsp;
+                    &nbsp;&nbsp;
                     <a href="#">
-                        signIn
+                    <LoginOutlined />
                     </a>
                 </div>
             </header>
